@@ -1,0 +1,22 @@
+Embedder: gemini-embedding-001 | chunk_size=500 | top_k=3
+
+=== Summary: points per query as naive/content (2 = gold top-1, 1 = gold top-2/3, 0 = miss; content also requires the evidence string in the retrieved context) ===
+strategy      chunks   avg             Q1           Q2           Q3           Q4           Q5  Q1-nofilter   naive  content
+fixed_size        80   481            2/2          2/0          2/2          2/2          2/2          2/0   10/10    8/10
+recursive        109   319            2/2          2/0          2/2          2/0          2/0          2/0   10/10    4/10
+by_sentences      90   386            2/0          2/0          2/2          2/2          2/0          2/0   10/10    4/10
+heading          144   349            2/0          2/2          2/2          2/2          2/2          2/0   10/10    8/10
+
+Q1 A/B top-3 (id, score, audience):
+  fixed_size
+    A no filter : [('vimaru-hbkkht-tieu-chuan-sinh-vien#0', 0.823, 'student'), ('vimaru-hbkkht-quy-trinh-xet-duyet#0', 0.758, 'staff'), ('vimaru-hbkkht-quy-trinh-xet-duyet#4', 0.7, 'staff')]
+    B student   : [('vimaru-hbkkht-tieu-chuan-sinh-vien#0', 0.823, 'student'), ('vimaru-hbkkht-tieu-chuan-sinh-vien#4', 0.688, 'student'), ('vimaru-hbkkht-tieu-chuan-sinh-vien#3', 0.686, 'student')]
+  recursive
+    A no filter : [('vimaru-hbkkht-tieu-chuan-sinh-vien#0', 0.806, 'student'), ('vimaru-hbkkht-quy-trinh-xet-duyet#0', 0.781, 'staff'), ('vimaru-hbkkht-tieu-chuan-sinh-vien#1', 0.742, 'student')]
+    B student   : [('vimaru-hbkkht-tieu-chuan-sinh-vien#0', 0.806, 'student'), ('vimaru-hbkkht-tieu-chuan-sinh-vien#1', 0.742, 'student'), ('vimaru-hbkkht-tieu-chuan-sinh-vien#5', 0.691, 'student')]
+  by_sentences
+    A no filter : [('vimaru-hbkkht-tieu-chuan-sinh-vien#0', 0.823, 'student'), ('vimaru-hbkkht-quy-trinh-xet-duyet#0', 0.769, 'staff'), ('ueh-ke-hoach-xet-hoc-bong-2026#2', 0.712, 'student')]
+    B student   : [('vimaru-hbkkht-tieu-chuan-sinh-vien#0', 0.823, 'student'), ('ueh-ke-hoach-xet-hoc-bong-2026#2', 0.712, 'student'), ('vimaru-hbkkht-tieu-chuan-sinh-vien#2', 0.699, 'student')]
+  heading
+    A no filter : [('vimaru-hbkkht-tieu-chuan-sinh-vien#0', 0.811, 'student'), ('vimaru-hbkkht-quy-trinh-xet-duyet#0', 0.781, 'staff'), ('vimaru-hbkkht-tieu-chuan-sinh-vien#1', 0.746, 'student')]
+    B student   : [('vimaru-hbkkht-tieu-chuan-sinh-vien#0', 0.811, 'student'), ('vimaru-hbkkht-tieu-chuan-sinh-vien#1', 0.746, 'student'), ('vimaru-hbkkht-tieu-chuan-sinh-vien#5', 0.728, 'student')]

@@ -1,0 +1,79 @@
+Embedder: gemini-embedding-001 | chunk_size=500 | top_k=3
+
+=== Strategy: by_sentences | 90 chunks | avg 386 chars ===
+
+Q1 [điều kiện (cần filter)] Học bổng khuyến khích học tập ở Viện Cơ khí VIMARU được xét như thế nào?
+  gold: vimaru-hbkkht-tieu-chuan-sinh-vien (evidence: "3.20 ≤ ĐTBHB < 3.60")
+  A) no filter: gold doc rank = 1 | evidence chunk rank = - | naive 2đ, content 0đ
+    1. 0.823  vimaru-hbkkht-tieu-chuan-sinh-vien#0          audience=student
+        # Tiêu chuẩn xét học bổng khuyến khích học tập (HBKKHT) cho sinh viên Nguồn: "Quy trình cấp học bổng khuyến kh
+    2. 0.769  vimaru-hbkkht-quy-trinh-xet-duyet#0           audience=staff
+        # Quy trình xét duyệt học bổng khuyến khích học tập (HBKKHT) – phần dành cho cán bộ Nguồn: "Quy trình cấp học 
+    3. 0.712  ueh-ke-hoach-xet-hoc-bong-2026#2              audience=student
+        ## 1. Học bổng Khuyến khích học tập ### 1.1. Đối tượng Sinh viên Đại học chính quy khóa 48 (Song ngành tích hợ
+  B) filter={'audience': 'student'}: gold doc rank = 1 | evidence chunk rank = - | naive 2đ, content 0đ
+    1. 0.823  vimaru-hbkkht-tieu-chuan-sinh-vien#0          audience=student
+        # Tiêu chuẩn xét học bổng khuyến khích học tập (HBKKHT) cho sinh viên Nguồn: "Quy trình cấp học bổng khuyến kh
+    2. 0.712  ueh-ke-hoach-xet-hoc-bong-2026#2              audience=student
+        ## 1. Học bổng Khuyến khích học tập ### 1.1. Đối tượng Sinh viên Đại học chính quy khóa 48 (Song ngành tích hợ
+    3. 0.699  vimaru-hbkkht-tieu-chuan-sinh-vien#2          audience=student
+        - Quy định số 1023/ĐHHH-ĐT&CTSV ngày 13/12/2010 về việc xét cấp học bổng khuyến khích học tập cho sinh viên đạ
+
+Q2 [tra số liệu] Học bổng Vallet dành cho học viên sau đại học năm 2026 có bao nhiêu suất và mỗi suất trị giá bao nhiêu?
+  gold: vallet-hoc-bong-sau-dai-hoc (evidence: "42 suất")
+  filter=None: gold doc rank = 1 | evidence chunk rank = - | naive 2đ, content 0đ
+    1. 0.823  vallet-hoc-bong-sau-dai-hoc#1                 audience=student
+        Căn cứ lịch sử hoạt động thường niên của Quỹ học bổng Vallet dành cho học sinh, sinh viên xuất sắc tại Việt Na
+    2. 0.785  vallet-hoc-bong-sau-dai-hoc#0                 audience=student
+        # Thông báo triển khai chương trình học bổng Vallet dành cho học viên sau đại học miền Bắc năm 2026 Đơn vị ban
+    3. 0.712  vallet-hoc-bong-sau-dai-hoc#11                audience=student
+        ## 6. Quy trình xét chọn Kết quả xét duyệt hồ sơ Vòng 1 sẽ được thông báo qua email của ứng viên. Danh sách cá
+
+Q3 [quy trình] Quy trình xét học bổng hỗ trợ đột xuất của UEH gồm những bước nào và mất bao lâu?
+  gold: ueh-ke-hoach-xet-hoc-bong-2026 (evidence: "Trình xin ý kiến Ban Giám đốc")
+  filter=None: gold doc rank = 1 | evidence chunk rank = 1 | naive 2đ, content 2đ
+   *1. 0.805  ueh-ke-hoach-xet-hoc-bong-2026#9              audience=student
+        ### 4.2. Các mốc thời gian thực hiện | Quy trình | Thời gian | |---|---| | Tiếp nhận yêu cầu hỗ trợ đột xuất t
+    2. 0.796  ueh-ke-hoach-xet-hoc-bong-2026#8              audience=student
+        Các mốc thời gian thực hiện | Quy trình | Tiến độ HKĐ2026 | Tiến độ HKC2026 | |---|---|---| | Triển khai thông
+    3. 0.771  ueh-ke-hoach-xet-hoc-bong-2026#6              audience=student
+        ### 2.2. Các mốc thời gian thực hiện | Quy trình | Tiến độ HKĐ2026 | Tiến độ HKC2026 | |---|---|---| | Triển k
+
+Q4 [liệt kê] Hồ sơ đăng ký học bổng K-T của ULIS gồm những giấy tờ gì?
+  gold: ulis-hoc-bong-kt-2025-2026 (evidence: "Bài phát biểu cảm tưởng")
+  filter=None: gold doc rank = 1 | evidence chunk rank = 2 | naive 2đ, content 2đ
+    1. 0.792  ulis-hoc-bong-kt-2025-2026#0                  audience=student
+        # Thông báo chương trình học bổng K-T năm học 2025-2026 Đơn vị ban hành: Phòng Đào tạo và Người học, Trường Đạ
+   *2. 0.773  ulis-hoc-bong-kt-2025-2026#5                  audience=student
+        - Bài phát biểu cảm tưởng của sinh viên khi được xét nhận học bổng (đánh máy, độ dài khoảng 01-02 trang A4). -
+    3. 0.767  ulis-hoc-bong-kt-2025-2026#4                  audience=student
+        Đối với sinh viên năm thứ nhất: bản photo Giấy triệu tập thí sinh trúng tuyển đại học năm 2025; bản photo giấy
+
+Q5 [điều kiện + số liệu] Tân sinh viên HSB muốn được tài trợ 100% học phí có điều kiện thì cần điểm thi bao nhiêu và phải hoàn trả thế nào?
+  gold: hsb-hoc-bong-tan-sinh-vien-2026 (evidence: "24/30")
+  filter=None: gold doc rank = 1 | evidence chunk rank = - | naive 2đ, content 0đ
+    1. 0.824  hsb-hoc-bong-tan-sinh-vien-2026#5             audience=student
+        Trường hợp các thí sinh được xét học bổng có điểm thi tốt nghiệp THPT bằng nhau, xét Thành tích học tập và Thà
+    2. 0.766  hsb-hoc-bong-tan-sinh-vien-2026#8             audience=student
+        Sinh viên phải đạt đủ 3 điều kiện tương ứng với từng mức học bổng (tính trên học phí toàn khóa): | Mức học bổn
+    3. 0.747  hsb-hoc-bong-tan-sinh-vien-2026#1             audience=student
+        Học bổng cho các chương trình chính quy ### 1.1 Học bổng dành cho tân sinh viên tiêu biểu khóa QH-2026-D | Mức
+
+--- Agent prompt sample (Q1, top-3 không filter) ---
+[DEMO LLM — chưa gọi model thật]
+Bạn là trợ lý trả lời câu hỏi về quy định và dịch vụ đại học.
+Chỉ sử dụng thông tin trong phần NGỮ CẢNH bên dưới, không dùng kiến thức bên ngoài.
+Khi dùng thông tin từ đoạn nào, trích dẫn số của đoạn đó, ví dụ [1] hoặc [2].
+Nếu ngữ cảnh không chứa câu trả lời, hãy trả lời: "Không tìm thấy thông tin liên quan trong cơ sở tri thức."
+
+NGỮ CẢNH:
+[1] (nguồn: vimaru-hbkkht-tieu-chuan-sinh-vien, https://
+
+=== Summary: points per query as naive/content (2 = gold top-1, 1 = gold top-2/3, 0 = miss; content also requires the evidence string in the retrieved context) ===
+strategy      chunks   avg             Q1           Q2           Q3           Q4           Q5  Q1-nofilter   naive  content
+by_sentences      90   386            2/0          2/0          2/2          2/2          2/0          2/0   10/10    4/10
+
+Q1 A/B top-3 (id, score, audience):
+  by_sentences
+    A no filter : [('vimaru-hbkkht-tieu-chuan-sinh-vien#0', 0.823, 'student'), ('vimaru-hbkkht-quy-trinh-xet-duyet#0', 0.769, 'staff'), ('ueh-ke-hoach-xet-hoc-bong-2026#2', 0.712, 'student')]
+    B student   : [('vimaru-hbkkht-tieu-chuan-sinh-vien#0', 0.823, 'student'), ('ueh-ke-hoach-xet-hoc-bong-2026#2', 0.712, 'student'), ('vimaru-hbkkht-tieu-chuan-sinh-vien#2', 0.699, 'student')]
